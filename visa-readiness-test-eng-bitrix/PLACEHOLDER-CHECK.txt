@@ -1,0 +1,2 @@
+This file confirms that the English folder is writable through the GitHub connector.
+Full local files are in: C:\Users\wallc\Documents\Сайт и реклама\visa-readiness-test-eng-bitrix
