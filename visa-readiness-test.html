@@ -1,0 +1,2351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тест на визовую готовность</title>
+  <meta property="og:title" content="Тест визовой готовности MIGRANT ID | Предварительная проверка документов">
+  <meta property="og:description" content="Пройдите тест MIGRANT ID за 5-7 минут: оцените готовность документов к рабочей визе и получите список следующих шагов. Предварительная оценка, не гарантия визы.">
+  <meta name="twitter:title" content="Тест визовой готовности MIGRANT ID | Предварительная проверка документов">
+  <meta name="twitter:description" content="Пройдите тест MIGRANT ID за 5-7 минут: оцените готовность документов к рабочей визе и получите список следующих шагов. Предварительная оценка, не гарантия визы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f6f9;
+      --panel: #ffffff;
+      --ink: #112333;
+      --muted: #627184;
+      --line: #d8e3eb;
+      --accent: #00618d;
+      --accent-dark: #073f5f;
+      --soft: #edf6fa;
+      --red: #d83232;
+      --orange: #e56b1f;
+      --yellow: #c79718;
+      --lime: #55a630;
+      --green: #16894a;
+      --surface: #ffffff;
+      --surface-soft: #f7fafc;
+      --blue-50: #edf7fb;
+      --blue-100: #d8edf6;
+      --green-50: #edf9f2;
+      --green-100: #d9f0e2;
+      --shadow: 0 20px 56px rgba(18, 35, 52, .11);
+      --shadow-soft: 0 12px 34px rgba(18, 35, 52, .07);
+      --shadow-lift: 0 16px 34px rgba(0, 70, 110, .11);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #f8fbfd 0%, var(--bg) 48%, #eef4f7 100%);
+      color: var(--ink);
+    }
+
+    .visa-test {
+      min-height: 100vh;
+      padding: clamp(14px, 2.5vw, 28px);
+    }
+
+    .visa-shell {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .visa-top {
+      display: block;
+      margin-bottom: 16px;
+      padding: clamp(18px, 2.5vw, 30px);
+      border: 1px solid #d8e4ed;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .top-copy {
+      min-width: 0;
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: 100%;
+      margin-bottom: clamp(22px, 2.4vw, 30px);
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(230px, 54vw);
+      height: auto;
+      margin-bottom: 0;
+    }
+
+    .brand-link {
+      display: inline-block;
+      line-height: 0;
+      border-radius: 6px;
+    }
+
+    .brand-link:focus-visible {
+      outline: 3px solid rgba(0, 87, 131, .25);
+      outline-offset: 4px;
+    }
+
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      border-radius: 999px;
+      border: 1px solid #cbdde8;
+      background: #f8fbfd;
+      color: var(--accent-dark);
+      padding: 8px 12px 8px 9px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: none;
+      transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background 160ms ease, border-color 160ms ease;
+      white-space: nowrap;
+    }
+
+    .contact-link:hover {
+      border-color: #a9cddd;
+      background: #ffffff;
+      box-shadow: 0 10px 22px rgba(18, 35, 52, .08);
+    }
+
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      max-width: 900px;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      color: #073f63;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .stage {
+      background: var(--panel);
+      border: 1px solid #d8e4ed;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 0;
+      background: #ffffff;
+    }
+
+    .intro-main,
+    .intro-side,
+    .question-card,
+    .documents,
+    .score-card {
+      padding: clamp(22px, 2.6vw, 30px);
+    }
+
+    .intro-side {
+      background: #f2f8fb;
+      border-left: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    .intro h2,
+    .question-card h2,
+    .documents h2 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 2.4vw, 30px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    button,
+    .button {
+      appearance: none;
+      border: 0;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 18px;
+      box-shadow: 0 12px 26px rgba(0, 87, 131, .16);
+      transition: transform 160ms var(--ease-out), background 160ms ease, opacity 160ms ease, box-shadow 160ms var(--ease-out);
+    }
+
+    button:hover,
+    .button:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 14px 30px rgba(0, 61, 95, .22);
+    }
+
+    button:active,
+    .button:active,
+    .contact-link:active,
+    .doc-row:active {
+      transform: scale(.98);
+    }
+
+    button.secondary {
+      background: #e7edf2;
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    button.secondary:hover { background: #dce4f0; }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: .5;
+      transform: none;
+    }
+
+    .question-card {
+      max-width: 760px;
+      min-height: 390px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cbd8e3;
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      padding: 12px 13px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms var(--ease-out), background 160ms ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 97, 141, .14);
+      background: #fbfdff;
+    }
+
+    .field { margin-top: 18px; }
+
+    .progress-line {
+      height: 7px;
+      background: #e5edf3;
+      overflow: hidden;
+      border-bottom: 1px solid #dbe6ef;
+    }
+
+    .progress-line span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #0b7eae);
+      transition: width 250ms var(--ease-out);
+    }
+
+    .test-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      align-items: start;
+    }
+
+    #testStage.certificate-active {
+      background: #f7fbf8;
+    }
+
+    #testStage.certificate-active .documents {
+      background: transparent;
+    }
+
+    #testStage.certificate-active .score-card {
+      background: #fbfdfc;
+    }
+
+    #testStage.certificate-active .doc-row {
+      border-color: #c5e5d0;
+      background: #fbfefc;
+    }
+
+    .documents {
+      border-right: 1px solid var(--line);
+    }
+
+      .score-card {
+        position: sticky;
+        top: 12px;
+        min-height: 100vh;
+        background: #fbfdff;
+        border-left: 1px solid rgba(220, 227, 238, .85);
+      }
+
+      .score-card .meter {
+        position: sticky;
+        top: 12px;
+        z-index: 2;
+      }
+
+    .mobile-extra-actions {
+      display: none;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+
+    .summary-item {
+      border: 1px solid #d8e4ee;
+      border-radius: 8px;
+      padding: 12px 13px;
+      background: #ffffff;
+      box-shadow: 0 6px 16px rgba(18, 35, 52, .04);
+    }
+
+    .summary-item.driver {
+      border-color: #b9d8e6;
+      background: #f1f8fb;
+    }
+
+    .summary-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .summary-item strong {
+      display: block;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .doc-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .doc-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      border: 1px solid #d9e4ed;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 16px;
+      box-shadow: 0 8px 18px rgba(18, 35, 52, .045);
+      transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), transform 180ms var(--ease-out), background 180ms ease;
+    }
+
+    .doc-row:hover {
+      border-color: #b9d8e6;
+      box-shadow: var(--shadow-lift);
+    }
+
+    .doc-row.done {
+      border-color: #7fc99a;
+      background: #f3fbf6;
+      box-shadow: inset 4px 0 0 #16894a, 0 10px 24px rgba(22, 137, 74, .1);
+    }
+
+    .doc-row.stop {
+      border-color: #e38b8b;
+      background: #fff5f5;
+      box-shadow: inset 4px 0 0 #d83232, 0 10px 24px rgba(216, 50, 50, .09);
+    }
+
+    .doc-row input {
+      width: 21px;
+      height: 21px;
+      margin: 2px 0 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .doc-title {
+      display: block;
+      margin: 0;
+      color: #122537;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .doc-hint {
+      display: block;
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .doc-note {
+      display: block;
+      margin-top: 10px;
+      border-left: 4px solid #16894a;
+      border-radius: 6px;
+      background: #edf9f2;
+      color: #135c35;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .doc-control {
+      margin-top: 10px;
+      max-width: 360px;
+    }
+
+    .doc-control select,
+    .doc-control input {
+      padding: 10px 11px;
+      font-size: 14px;
+    }
+
+    .language-options {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .language-option {
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      margin: 0;
+      border: 1px solid #d9e4ed;
+      border-radius: 7px;
+      background: #ffffff;
+      padding: 9px 10px;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .language-option input {
+      width: 18px;
+      height: 18px;
+      margin: 1px 0 0;
+      padding: 0;
+      accent-color: var(--accent);
+    }
+
+    .doc-tag {
+      color: var(--muted);
+      font-weight: 700;
+      text-align: right;
+      font-size: 13px;
+      white-space: nowrap;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: #f6f9fd;
+    }
+
+    .doc-tag.required {
+      color: #a92323;
+      border-color: #f0b8b8;
+      background: #fff3f3;
+    }
+
+    .doc-row.done .doc-tag {
+      color: #16894a;
+      border-color: #98d4ad;
+      background: #e8f8ef;
+    }
+
+    .doc-tag.stop {
+      color: #a92323;
+      border-color: #e38b8b;
+      background: #fff0f0;
+    }
+
+    .doc-tag.strong {
+      color: #005783;
+      border-color: #b9d8e6;
+      background: #eef8fc;
+    }
+
+    .blockers {
+      margin: 16px 0 0;
+      border: 1px solid #f0b8b8;
+      border-radius: 8px;
+      background: #fff5f5;
+      padding: 12px;
+      color: #8d2424;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .blockers.stop {
+      border-color: #dc7b7b;
+      background: #fff0f0;
+      color: #8d1f1f;
+      box-shadow: inset 4px 0 0 #d83232;
+    }
+
+    .readiness-label {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .meter {
+      width: 100%;
+      margin: 0 0 16px;
+      border: 1px solid #d3e0ea;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 16px;
+      box-shadow: 0 16px 34px rgba(18, 35, 52, .08);
+    }
+
+    .meter-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .meter-bar {
+      height: 22px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e7eef4;
+      box-shadow: inset 0 2px 5px rgba(18, 35, 52, .09);
+    }
+
+    .meter-fill {
+      display: block;
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--red);
+      box-shadow: 0 8px 18px rgba(0, 87, 131, .16);
+      transition: width 260ms var(--ease-out), background 180ms ease;
+      position: relative;
+    }
+
+    .meter-fill::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      transform: translateX(-120%);
+      opacity: 0;
+    }
+
+    .meter.bump .meter-fill::after {
+      animation: meterShine 620ms var(--ease-out);
+    }
+
+    .meter.bump .percent {
+      animation: percentPop 220ms var(--ease-out);
+    }
+
+    @keyframes meterShine {
+      0% { opacity: 0; transform: translateX(-120%); }
+      20% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(120%); }
+    }
+
+    @keyframes percentPop {
+      0% { transform: scale(1); }
+      45% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .percent {
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 850;
+      transform-origin: left center;
+    }
+
+    .rating {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 15px;
+      text-align: right;
+    }
+
+    .status {
+      margin: 0 0 12px;
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 800;
+      text-align: center;
+      color: #152033;
+    }
+
+    .required-progress {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .score-breakdown {
+      display: block;
+      margin-top: 6px;
+      color: #4c5b70;
+      font-size: 12px;
+      line-height: 1.35;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .status-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .cta {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .cta,
+    .contact-link,
+    .doc-row {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cta.reset {
+      margin-top: 10px;
+    }
+
+    .mobile-score-actions {
+      display: none;
+    }
+
+    .share-box {
+      margin-top: 14px;
+      border: 1px solid #d7e4ee;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 12px;
+    }
+
+    .share-text {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .cta.share {
+      margin-top: 0;
+      background: #f1f8fb;
+      color: #005783;
+      border: 1px solid #b9d8e6;
+      box-shadow: none;
+    }
+
+    .cta.share:hover {
+      background: #e2f3f9;
+    }
+
+    .share-message {
+      margin: 8px 0 0;
+      color: #16894a;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .disclaimer {
+      margin-top: 18px;
+      color: #7a8495;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .mobile-disclaimer {
+      display: none;
+      margin: 8px 0 0;
+      color: #7a8495;
+      font-size: 11px;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .doc-fieldset {
+      margin: 18px 0 0;
+      padding: 0;
+      border: 0;
+      min-inline-size: 0;
+    }
+
+    .doc-fieldset legend {
+      padding: 0;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .contact-link:hover,
+      button:hover,
+      .button:hover,
+      .doc-row:hover {
+        transform: translateY(-1px);
+      }
+
+      button:active,
+      .button:active,
+      .contact-link:active,
+      .doc-row:active {
+        transform: scale(.98);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+
+      button:active,
+      .button:active,
+      .contact-link:active,
+      .doc-row:active {
+        transform: none;
+      }
+    }
+
+    dialog {
+      width: min(560px, calc(100% - 24px));
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(17, 28, 46, .28);
+      padding: 0;
+    }
+
+    dialog::backdrop {
+      background: rgba(12, 22, 38, .48);
+    }
+
+    .modal {
+      padding: 24px;
+    }
+
+    .modal h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .hidden { display: none !important; }
+
+    .message {
+      margin-top: 14px;
+      border-radius: 6px;
+      padding: 12px;
+      background: #eef7f1;
+      color: #136334;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .message.error {
+      background: #fff0f0;
+      color: #a92323;
+    }
+
+    @media (max-width: 880px) {
+      .visa-test { padding: 14px; }
+      .visa-top {
+        padding: 16px;
+      }
+      .brand-line {
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .brand-logo {
+        width: min(154px, 41vw);
+      }
+      .contact-actions {
+        justify-content: flex-end;
+        flex: 0 1 auto;
+        min-width: 0;
+      }
+      .contact-link {
+        width: auto;
+        justify-content: center;
+        white-space: nowrap;
+        text-align: center;
+        min-height: 34px;
+        padding: 6px 8px 6px 6px;
+        font-size: clamp(10.5px, 2.7vw, 12px);
+        gap: 6px;
+        letter-spacing: 0;
+      }
+      .contact-icon {
+        width: 19px;
+        height: 19px;
+        font-size: 11px;
+      }
+      h1 {
+        font-size: clamp(31px, 9.8vw, 40px);
+        line-height: 1.08;
+      }
+      .lead {
+        font-size: 15px;
+      }
+      .intro,
+      .test-layout {
+        grid-template-columns: 1fr;
+      }
+      .intro-side {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .documents {
+        border-right: 0;
+      }
+      .score-card {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 6;
+        min-height: 0 !important;
+        height: auto;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+        border-radius: 10px 10px 0 0;
+        padding: 10px 12px calc(12px + env(safe-area-inset-bottom));
+        background: #ffffff !important;
+        box-shadow: 0 -18px 42px rgba(19, 35, 55, .24);
+      }
+      .test-layout {
+        padding-bottom: 292px;
+      }
+      .score-card .meter {
+        margin-bottom: 7px;
+        padding: 10px;
+        border: 1px solid #e0e9f0;
+        box-shadow: none;
+        background: #ffffff;
+      }
+      .percent { font-size: 31px; }
+      .readiness-label { display: none; }
+      .meter-inner {
+        align-items: center;
+        margin-bottom: 7px;
+      }
+      .meter { margin-bottom: 6px; }
+      .meter-bar { height: 14px; }
+      .rating { font-size: 13px; }
+      .status {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .status-note,
+      .disclaimer,
+      .blockers,
+      .score-card .reset { display: none !important; }
+      .mobile-disclaimer { display: block; }
+      .required-progress { font-size: 11px; }
+      .score-breakdown {
+        margin-top: 4px;
+        font-size: 11px;
+      }
+      .cta { margin-top: 10px; }
+      .score-card .cta {
+        min-height: 42px;
+        padding: 11px 12px;
+        box-shadow: 0 10px 24px rgba(0, 87, 131, .18);
+      }
+      .mobile-score-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .mobile-score-actions button {
+        min-height: 38px;
+        padding: 9px 10px;
+        font-size: 13px;
+        line-height: 1.2;
+        box-shadow: none;
+      }
+      .score-card .share-box {
+        display: block;
+        margin-top: 8px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+      .score-card .share-text,
+      .score-card .share-message {
+        display: none !important;
+      }
+      .score-card .cta.share {
+        min-height: 38px;
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+      .summary-grid { grid-template-columns: 1fr; }
+      .doc-row {
+        grid-template-columns: 24px minmax(0, 1fr);
+      }
+      .doc-tag {
+        grid-column: 2;
+        text-align: left;
+        width: max-content;
+      }
+      .mobile-extra-actions {
+        display: none !important;
+      }
+      .mobile-extra-actions .share-box {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .visa-test { padding: 10px; }
+      .visa-top { padding: 14px; }
+      .brand-line { gap: 6px; }
+      .brand-logo { width: min(145px, 39vw); }
+      .contact-link {
+        max-width: 52vw;
+        overflow: hidden;
+      }
+      .contact-link span:last-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .intro-main,
+      .intro-side,
+      .question-card,
+      .documents {
+        padding: 20px;
+      }
+      .doc-row {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="visa-test" id="visaTest">
+    <div class="visa-shell">
+      <section class="visa-top">
+        <div class="top-copy">
+          <div class="brand-line">
+            <a class="brand-link" href="https://migrantid.org" target="_blank" rel="noopener" aria-label="Открыть сайт Migrant ID">
+              <img class="brand-logo" src="migrant-id-logo.png" alt="Migrant ID">
+            </a>
+            <div class="contact-actions" aria-label="Связаться с Migrant ID">
+              <a class="contact-link" href="https://wa.me/447893930899" target="_blank" rel="noopener">
+                <span class="contact-icon" aria-hidden="true">☎</span>
+                <span>+44 789 393 0899</span>
+              </a>
+            </div>
+          </div>
+          <h1>Тест на визовую готовность</h1>
+          <p class="lead">Проверьте, насколько ваш пакет документов готов к подаче на рабочую визу, и получите понятный список того, что стоит усилить.</p>
+        </div>
+      </section>
+
+      <section class="stage" id="introStage">
+        <div class="intro">
+          <div class="intro-main">
+            <h2>Хотите оценить ваши шансы на получение рабочей визы?</h2>
+            <p class="small">Тест займет 5-7 минут. Это не экзамен, а предварительная оценка готовности и список действий перед консультацией.</p>
+            <div class="actions">
+              <button type="button" data-start aria-label="Начать тест визовой готовности">Начать тест визовой готовности</button>
+            </div>
+          </div>
+          <aside class="intro-side">
+            <p class="kicker">Что будет внутри</p>
+            <p class="small">Сначала несколько вопросов о возрасте, гражданстве, вакансии, стране и сроке поездки. Затем вы отметите документы, которые уже готовы, а тест рассчитает процент и рейтинг.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="stage hidden" id="questionStage">
+        <div class="progress-line"><span id="questionProgress"></span></div>
+        <div class="question-card">
+          <p class="kicker" id="questionCounter"></p>
+          <h2 id="questionTitle"></h2>
+          <div id="questionField"></div>
+          <div class="message hidden" id="gateMessage"></div>
+          <div class="actions">
+            <button type="button" class="secondary" id="prevQuestion" aria-label="Вернуться к предыдущему вопросу теста">Назад</button>
+            <button type="button" id="nextQuestion" aria-label="Перейти к следующему вопросу теста">Далее</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage hidden" id="testStage">
+        <div class="test-layout">
+          <section class="documents">
+            <p class="kicker">Пакет документов</p>
+            <h2>Отметьте, что уже готово</h2>
+            <p class="small" id="documentIntro"></p>
+            <div class="summary-grid" id="summaryGrid"></div>
+            <fieldset class="doc-fieldset">
+              <legend>Отметьте документы, которые уже готовы</legend>
+              <div class="doc-list" id="documentList"></div>
+            </fieldset>
+            <div class="mobile-extra-actions">
+              <div class="share-box">
+                <p class="share-text">Поделитесь тестом с друзьями, которым тоже может быть полезно проверить визовую готовность.</p>
+                <button type="button" class="cta share" id="shareTestMobile" aria-label="Поделиться ссылкой на тест визовой готовности">Поделиться тестом</button>
+                <p class="share-message hidden" id="shareMessageMobile">Ссылка скопирована</p>
+              </div>
+              <button type="button" class="secondary cta reset" id="resetTestMobile" aria-label="Начать тест заново">Начать заново</button>
+            </div>
+          </section>
+
+          <aside class="score-card">
+            <div class="meter" id="meter">
+              <p class="readiness-label">Визовая готовность</p>
+              <div class="meter-inner">
+                <div>
+                  <div class="percent" id="scorePercent">0%</div>
+                </div>
+                <div class="rating" id="scoreRating">Рейтинг C</div>
+              </div>
+              <div class="meter-bar"><span class="meter-fill" id="meterFill"></span></div>
+              <div class="required-progress" id="requiredProgress">Обязательные пункты: 0 из 0</div>
+              <span class="score-breakdown" id="scoreBreakdown"></span>
+            </div>
+            <p class="status" id="scoreStatus">Низкая готовность</p>
+            <p class="status-note" id="scoreNote">Отметьте документы, которые уже есть, чтобы увидеть предварительный уровень готовности.</p>
+            <div class="blockers hidden" id="blockersBox"></div>
+            <p class="mobile-disclaimer">Предварительная оценка, не гарантия визы.</p>
+            <button type="button" class="cta" id="openLead" disabled aria-label="Написать специалисту MIGRANT ID">Написать специалисту Migrant ID</button>
+            <div class="mobile-score-actions">
+              <button type="button" class="secondary" id="backToQuestionsMobile" aria-label="Вернуться к вопросам теста">Назад к вопросам</button>
+            </div>
+            <div class="share-box">
+              <p class="share-text">Поделитесь тестом с друзьями, которым тоже может быть полезно проверить визовую готовность.</p>
+              <button type="button" class="cta share" id="shareTest" aria-label="Поделиться ссылкой на тест визовой готовности">Поделиться тестом</button>
+              <p class="share-message hidden" id="shareMessage">Ссылка скопирована</p>
+            </div>
+            <button type="button" class="secondary cta reset" id="resetTest" aria-label="Начать тест заново">Начать заново</button>
+            <p class="disclaimer">Результат теста является предварительной оценкой и не гарантирует выдачу визы. Финальное решение принимает консульство или уполномоченный орган страны.</p>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="leadDialog">
+    <form method="dialog" class="modal" id="leadForm">
+      <h2>Связаться со специалистом</h2>
+      <p class="small">Выберите удобный способ общения. Специалист Migrant ID подскажет, с чего начать и какой следующий шаг подходит именно вам.</p>
+      <div class="field">
+        <label for="leadName">Имя</label>
+        <input id="leadName" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="leadPhone">Телефон</label>
+        <input id="leadPhone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="field">
+        <label for="leadTelegram">Telegram</label>
+        <input id="leadTelegram" name="telegram" placeholder="@username">
+      </div>
+      <div class="field">
+        <label for="leadEmail">Почта</label>
+        <input id="leadEmail" name="email" type="email" autocomplete="email">
+      </div>
+      <div class="actions">
+        <button type="submit">Отправить</button>
+        <button type="button" class="secondary" id="closeLead">Закрыть</button>
+      </div>
+      <div class="message hidden" id="leadMessage"></div>
+    </form>
+  </dialog>
+
+  <script>
+    (function () {
+      // Вставьте сюда полный URL входящего вебхука Битрикс24 с методом crm.lead.add.json.
+      // Пример: https://your-domain.bitrix24.ru/rest/1/webhook-code/crm.lead.add.json
+      const BITRIX_WEBHOOK_URL = '';
+      const CONTACT_PAGE_URL = 'https://migrantid.org/ru/form_duqu/';
+      const PUBLIC_TEST_URL = 'https://migrantid.org/ru/test/';
+      // Сюда вставляется URL Google Apps Script Web App, если нужно сохранять результаты в Google Sheets.
+      const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzepUAQinDyIze3XpH-AG_zHgdLYrf7XxX37pmvF8jytekgCsFcqIMla6K4bNWFetdR/exec';
+      const BITRIX_ASSIGNED_BY_ID = '';
+      const BITRIX_SOURCE_ID = 'WEB';
+      const STORAGE_KEY = 'migrantIdVisaReadinessStateV2';
+
+      const europeCountries = [
+        'Австрия', 'Албания', 'Андорра', 'Беларусь', 'Бельгия', 'Болгария', 'Босния и Герцеговина',
+        'Великобритания', 'Венгрия', 'Германия', 'Греция', 'Дания', 'Ирландия', 'Исландия',
+        'Испания', 'Италия', 'Кипр', 'Латвия', 'Литва', 'Лихтенштейн', 'Люксембург', 'Мальта',
+        'Молдова', 'Монако', 'Нидерланды', 'Норвегия', 'Польша', 'Португалия', 'Румыния', 'Сан-Марино',
+        'Северная Македония', 'Сербия', 'Словакия', 'Словения', 'Украина', 'Финляндия', 'Франция',
+        'Хорватия', 'Черногория', 'Чехия', 'Швейцария', 'Швеция', 'Эстония'
+      ];
+
+      const citizenshipCountries = [
+        'Афганистан', 'Австралия', 'Австрия', 'Азербайджан', 'Албания', 'Алжир', 'Ангола', 'Аргентина',
+        'Армения', 'Бангладеш', 'Беларусь', 'Бельгия', 'Болгария', 'Бразилия', 'Великобритания',
+        'Венгрия', 'Вьетнам', 'Гана', 'Германия', 'Греция', 'Грузия', 'Дания', 'Египет', 'Израиль',
+        'Индия', 'Индонезия', 'Иордания', 'Ирак', 'Иран', 'Ирландия', 'Испания', 'Италия', 'Казахстан',
+        'Камбоджа', 'Канада', 'Кения', 'Киргизия', 'Китай', 'Колумбия', 'Латвия', 'Литва', 'Молдова',
+        'Монголия', 'Непал', 'Нигерия', 'Нидерланды', 'ОАЭ', 'Пакистан', 'Польша', 'Румыния',
+        'Россия', 'Сербия', 'Сирия', 'Словакия', 'США', 'Таджикистан', 'Таиланд', 'Туркменистан',
+        'Турция', 'Узбекистан', 'Украина', 'Филиппины', 'Франция', 'Чехия', 'Шри-Ланка', 'Эстония',
+        'ЮАР', 'Южная Корея', 'Япония'
+      ];
+
+      const easternEurope = new Set([
+        'Албания', 'Беларусь', 'Босния и Герцеговина', 'Венгрия', 'Латвия', 'Молдова', 'Польша',
+        'Болгария', 'Литва', 'Румыния', 'Северная Македония', 'Сербия', 'Словакия', 'Словения',
+        'Украина', 'Хорватия', 'Черногория', 'Чехия', 'Эстония'
+      ]);
+
+      const vacancies = [
+        'Сезонная работа', 'Работник склада', 'Производство', 'Сельское хозяйство', 'Отель/ресторан',
+        'Строительство', 'Водитель', 'Уход и социальная помощь', 'Медицина', 'Образование',
+        'Другая вакансия'
+      ];
+
+      const driverCategories = [
+        'B', 'BE', 'C1', 'C1E', 'C', 'CE', 'D1', 'D1E', 'D', 'DE', 'ADR', 'несколько категорий'
+      ];
+
+      const countryLanguages = {
+        'Австрия': 'немецкий',
+        'Албания': 'албанский',
+        'Андорра': 'каталанский',
+        'Беларусь': 'русский или белорусский',
+        'Бельгия': 'нидерландский, французский или немецкий',
+        'Болгария': 'болгарский',
+        'Босния и Герцеговина': 'боснийский, сербский или хорватский',
+        'Великобритания': 'английский',
+        'Венгрия': 'венгерский',
+        'Германия': 'немецкий',
+        'Греция': 'греческий',
+        'Дания': 'датский',
+        'Ирландия': 'английский',
+        'Исландия': 'исландский',
+        'Испания': 'испанский',
+        'Италия': 'итальянский',
+        'Кипр': 'греческий или английский',
+        'Латвия': 'латышский',
+        'Литва': 'литовский',
+        'Лихтенштейн': 'немецкий',
+        'Люксембург': 'люксембургский, французский или немецкий',
+        'Мальта': 'английский или мальтийский',
+        'Молдова': 'румынский',
+        'Монако': 'французский',
+        'Нидерланды': 'нидерландский',
+        'Норвегия': 'норвежский',
+        'Польша': 'польский',
+        'Португалия': 'португальский',
+        'Румыния': 'румынский',
+        'Сан-Марино': 'итальянский',
+        'Северная Македония': 'македонский',
+        'Сербия': 'сербский',
+        'Словакия': 'словацкий',
+        'Словения': 'словенский',
+        'Украина': 'украинский',
+        'Финляндия': 'финский',
+        'Франция': 'французский',
+        'Хорватия': 'хорватский',
+        'Черногория': 'черногорский или сербский',
+        'Чехия': 'чешский',
+        'Швейцария': 'немецкий, французский или итальянский',
+        'Швеция': 'шведский',
+        'Эстония': 'эстонский'
+      };
+
+      const questions = [
+        { key: 'name', title: 'Как вас зовут?', type: 'text', placeholder: 'Фамилия и имя', required: true },
+        { key: 'age', title: 'Сколько вам лет?', type: 'select', required: true, options: ['до 18 лет', '18-24', '25-34', '35-44', '45-55', 'старше 55 лет'] },
+        { key: 'citizenship', title: 'Пожалуйста, укажите ваше гражданство', type: 'select', required: true, options: citizenshipCountries },
+        { key: 'vacancy', title: 'Какие вакансии за рубежом вы рассматриваете?', type: 'select', required: true, options: vacancies, help: 'Сезонная работа — это временная работа на ограниченный срок: например, сбор урожая, теплицы, отели и рестораны в высокий сезон, временные работы на производстве.' },
+        { key: 'destination', title: 'В какую страну Европы вы хотели бы поехать для работы?', type: 'select', required: true, options: europeCountries },
+        { key: 'duration', title: 'На какой срок?', type: 'select', required: true, options: ['до 3 месяцев', '3-6 месяцев', '6-12 месяцев', 'более года'] }
+      ];
+
+      const baseDocuments = [
+        {
+          id: 'passport',
+          title: 'Загранпаспорт',
+          required: true,
+          hint: 'Действителен минимум 18 месяцев, есть не менее 2 чистых страниц.'
+        },
+        {
+          id: 'contract',
+          title: 'Рабочий контракт или приглашение от работодателя',
+          required: true,
+          hint: 'Документ должен подтверждать работодателя, должность, срок работы, оплату, адрес работы и основные условия трудоустройства.',
+          note: 'Если вы оформляетесь через Migrant ID, работодатель быстрее принимает решение и высылает только официальное приглашение за свой счёт.'
+        },
+        {
+          id: 'finance',
+          title: 'Подтверждение финансовой состоятельности',
+          required: true,
+          hint: 'Сумма зависит от страны: Восточная Европа от 700 EUR, остальная Европа от 1500 EUR. Деньги должны лежать на счете минимум 28 дней.'
+        },
+        {
+          id: 'migrantId',
+          title: 'Сертификат Migrant ID',
+          weight: 20,
+          hint: 'Сертификат дает прямой доступ к базе партнеров-работодателей Migrant ID. Кандидатам с сертификатом работодатели сами охотнее предлагают варианты работы и быстрее переходят к трудоустройству.'
+        },
+        {
+          id: 'languageB1',
+          title: 'Язык для общения на работе в выбранной стране',
+          required: true,
+          weight: 12,
+          hint: 'Укажите самый сильный рабочий язык, на котором сможете общаться после переезда. Для Восточной Европы может подойти русский, английский или язык выбранной страны. Для Западной Европы обычно нужен английский или язык выбранной страны.',
+          control: {
+            key: 'workLanguage',
+            type: 'multi-select',
+            options: []
+          }
+        },
+        {
+          id: 'driverLicense',
+          title: 'Водительские права подходящей категории',
+          required: true,
+          hint: 'Для водителей нужны действующие права под выбранное направление. Укажите основную категорию или отметьте несколько категорий.',
+          control: { key: 'driverCategories', type: 'select', options: driverCategories },
+          condition: answers => answers.vacancy === 'Водитель'
+        },
+        {
+          id: 'driverExperienceProofDoc',
+          title: 'Официальное подтверждение водительского опыта',
+          required: true,
+          hint: 'Опыт должен подтверждаться документами: трудовая книжка, справки от работодателей, контракты, рекомендательные письма или другие официальные подтверждения.',
+          control: { key: 'driverExperienceProof', type: 'select', options: ['Да', 'Частично', 'Нет'] },
+          condition: answers => answers.vacancy === 'Водитель'
+        },
+        {
+          id: 'driverMedical',
+          title: 'Действующая водительская медсправка и психотесты',
+          required: true,
+          hint: 'Для водительских вакансий важно подтвердить состояние здоровья и прохождение психотестов, если это требуется страной или работодателем.',
+          condition: answers => answers.vacancy === 'Водитель'
+        },
+        {
+          id: 'code95',
+          title: 'Code 95',
+          weight: 10,
+          hint: 'Code 95 — отметка или сертификат профессиональной квалификации водителя для коммерческих перевозок в Европе. Действующий Code 95 сильно повышает шансы водителя.',
+          control: { key: 'driverCode95', type: 'select', options: ['Да, действующий', 'В процессе оформления', 'Нет'] },
+          condition: answers => answers.vacancy === 'Водитель'
+        },
+        {
+          id: 'gccEuExperience',
+          title: 'Опыт работы водителем в GCC или Европе',
+          weight: 7,
+          hint: 'GCC — страны Персидского залива: ОАЭ, Саудовская Аравия, Катар, Кувейт, Бахрейн, Оман. Подтвержденный опыт работы там или в Европе заметно повышает доверие работодателя.',
+          control: { key: 'driverExperienceRegion', type: 'select', options: ['Да, в странах GCC', 'Да, в Европе', 'Да, GCC и Европа', 'Нет такого опыта'] },
+          condition: answers => answers.vacancy === 'Водитель'
+        },
+        {
+          id: 'qualification',
+          title: 'Документ, подтверждающий квалификацию',
+          weight: 6,
+          hint: 'Диплом, свидетельство, аттестат или сертификат. Для ряда стран может потребоваться апостиль или перевод.',
+          condition: answers => ['Медицина', 'Образование', 'Водитель', 'Уход и социальная помощь'].includes(answers.vacancy)
+        },
+        {
+          id: 'criminal',
+          title: 'Справка об отсутствии судимости',
+          required: true,
+          weight: 12,
+          hint: 'Если справка требуется, важно не только наличие документа, но и отсутствие записей. При наличии судимости нужна индивидуальная оценка до подачи.',
+          control: {
+            key: 'criminalStatus',
+            type: 'select',
+            options: ['Есть справка, судимости нет', 'Справка в процессе оформления', 'Справки нет', 'Есть судимость / была судимость']
+          },
+          condition: needsCriminalRecord
+        },
+        {
+          id: 'medical',
+          title: 'Медицинская справка',
+          weight: 8,
+          hint: 'Подтверждает, что кандидат заранее готовит визовый пакет и может пройти требования работодателя/консульства по здоровью.',
+          condition: answers => answers.vacancy !== 'Водитель'
+        },
+        {
+          id: 'accommodation',
+          title: 'Подтверждение проживания',
+          weight: 5,
+          hint: 'Бронь, ваучер, адрес проживания от работодателя или другой документ на весь срок поездки.'
+        },
+        {
+          id: 'tickets',
+          title: 'Билеты или маршрут поездки',
+          weight: 4,
+          hint: 'Выкупленные билеты или бронь с кодом PNR. Для долгосрочной работы может быть достаточно маршрута въезда.'
+        },
+        {
+          id: 'previousVisas',
+          title: 'Копии ранее полученных виз',
+          weight: 3,
+          hint: 'Если раньше вы получали визы, сканы этих страниц могут усилить пакет документов.'
+        },
+        {
+          id: 'homeTies',
+          title: 'Подтверждение связей со страной проживания',
+          weight: 4,
+          hint: 'Справка с работы, документы о семье, недвижимости, ИП или другие подтверждения намерения соблюдать визовые условия.'
+        },
+        {
+          id: 'workReference',
+          title: 'Справка с работы или подтверждение занятости',
+          weight: 4,
+          hint: 'Справка с текущего или последнего места работы помогает подтвердить стабильность, опыт и связь со страной проживания.'
+        }
+      ];
+
+      const answers = {};
+      const selectedDocuments = new Set();
+      let step = 0;
+      let currentDocuments = [];
+      let currentScore = { percent: 0, rating: 'C', status: '', note: '', color: '#d83232' };
+      let previousPercent = 0;
+      let blockedByGate = false;
+
+      const $ = selector => document.querySelector(selector);
+      const introStage = $('#introStage');
+      const questionStage = $('#questionStage');
+      const testStage = $('#testStage');
+      const questionProgress = $('#questionProgress');
+      const questionCounter = $('#questionCounter');
+      const questionTitle = $('#questionTitle');
+      const questionField = $('#questionField');
+      const gateMessage = $('#gateMessage');
+      const prevQuestion = $('#prevQuestion');
+      const nextQuestion = $('#nextQuestion');
+      const documentList = $('#documentList');
+      const summaryGrid = $('#summaryGrid');
+      const documentIntro = $('#documentIntro');
+      const meter = $('#meter');
+      const scorePercent = $('#scorePercent');
+      const scoreRating = $('#scoreRating');
+      const scoreStatus = $('#scoreStatus');
+      const scoreNote = $('#scoreNote');
+      const blockersBox = $('#blockersBox');
+      const meterFill = $('#meterFill');
+      const requiredProgress = $('#requiredProgress');
+      const scoreBreakdown = $('#scoreBreakdown');
+      const openLead = $('#openLead');
+      const resetTest = $('#resetTest');
+      const backToQuestionsMobile = $('#backToQuestionsMobile');
+      const shareTest = $('#shareTest');
+      const shareMessage = $('#shareMessage');
+      const resetTestMobile = $('#resetTestMobile');
+      const shareTestMobile = $('#shareTestMobile');
+      const shareMessageMobile = $('#shareMessageMobile');
+      const leadDialog = $('#leadDialog');
+      const leadForm = $('#leadForm');
+      const leadMessage = $('#leadMessage');
+
+      document.querySelector('[data-start]').addEventListener('click', () => {
+        introStage.classList.add('hidden');
+        questionStage.classList.remove('hidden');
+        saveState();
+        renderQuestion();
+      });
+
+      prevQuestion.addEventListener('click', () => {
+        if (step > 0) {
+          step -= 1;
+          saveState();
+          renderQuestion();
+        }
+      });
+
+      nextQuestion.addEventListener('click', () => {
+        if (blockedByGate) {
+          sendGoogleSheetSnapshot('open_contact_page');
+          window.location.href = buildContactPageUrl();
+          return;
+        }
+        if (!saveCurrentAnswer()) return;
+        const gate = getGateMessage();
+        if (gate) {
+          showGate(gate);
+          return;
+        }
+        const activeQuestions = getActiveQuestions();
+        if (step < activeQuestions.length - 1) {
+          step += 1;
+          saveState();
+          renderQuestion();
+        } else {
+          showDocuments();
+        }
+      });
+
+      openLead.addEventListener('click', () => {
+        sendGoogleSheetSnapshot('open_contact_page');
+        window.location.href = buildContactPageUrl();
+      });
+
+      shareTest.addEventListener('click', shareCurrentTest);
+      shareTestMobile.addEventListener('click', shareCurrentTest);
+
+      async function shareCurrentTest() {
+        const shareData = {
+          title: 'Тест на визовую готовность Migrant ID',
+          text: 'Проверьте, насколько вы готовы к подаче на рабочую визу.',
+          url: PUBLIC_TEST_URL
+        };
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+            return;
+          }
+          await copyShareLink();
+        } catch (error) {
+          if (error && error.name === 'AbortError') return;
+          await copyShareLink();
+        }
+      }
+
+      resetTest.addEventListener('click', resetSavedTest);
+      resetTestMobile.addEventListener('click', resetSavedTest);
+      backToQuestionsMobile.addEventListener('click', returnToQuestions);
+
+      function returnToQuestions() {
+        introStage.classList.add('hidden');
+        testStage.classList.add('hidden');
+        questionStage.classList.remove('hidden');
+        const activeQuestions = getActiveQuestions();
+        if (step >= activeQuestions.length) step = activeQuestions.length - 1;
+        if (step < 0) step = 0;
+        saveState('questions');
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function resetSavedTest() {
+        try { localStorage.removeItem(STORAGE_KEY); } catch (error) {}
+        Object.keys(answers).forEach(key => delete answers[key]);
+        selectedDocuments.clear();
+        step = 0;
+        currentDocuments = [];
+        introStage.classList.remove('hidden');
+        questionStage.classList.add('hidden');
+        testStage.classList.add('hidden');
+      }
+
+      $('#closeLead').addEventListener('click', () => leadDialog.close());
+
+      leadForm.addEventListener('submit', event => {
+        event.preventDefault();
+        submitLead();
+      });
+
+      restoreState();
+
+      function renderQuestion() {
+        const activeQuestions = getActiveQuestions();
+        const question = activeQuestions[step];
+        blockedByGate = false;
+        gateMessage.classList.add('hidden');
+        questionCounter.textContent = decodeText(`Вопрос ${step + 1} из ${activeQuestions.length}`);
+        questionTitle.textContent = decodeText(question.title);
+        questionProgress.style.width = `${((step + 1) / activeQuestions.length) * 100}%`;
+        prevQuestion.disabled = step === 0;
+        nextQuestion.textContent = decodeText(step === activeQuestions.length - 1 ? 'Перейти к документам' : 'Далее');
+
+        if (question.type === 'select') {
+          questionField.innerHTML = `
+            <div class="field">
+              <label for="questionInput">Выберите вариант</label>
+              <select id="questionInput" required>
+                <option value="">Выберите</option>
+                ${question.options.map(option => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join('')}
+              </select>
+              ${question.help ? `<p class="small">${escapeHtml(question.help)}</p>` : ''}
+            </div>
+          `;
+        } else {
+          questionField.innerHTML = `
+            <div class="field">
+              <label for="questionInput">Введите ответ</label>
+              <input id="questionInput" type="text" placeholder="${escapeHtml(question.placeholder || '')}" required>
+            </div>
+          `;
+        }
+
+        $('#questionInput').value = answers[question.key] || '';
+        $('#questionInput').focus();
+      }
+
+      function saveCurrentAnswer() {
+        const question = getActiveQuestions()[step];
+        const input = $('#questionInput');
+        const value = input.value.trim();
+        if (question.required && !value) {
+          input.focus();
+          input.reportValidity();
+          return false;
+        }
+        answers[question.key] = value;
+        saveState();
+        return true;
+      }
+
+      function getGateMessage() {
+        if (getActiveQuestions()[step].key !== 'age') return '';
+        if (answers.age === 'до 18 лет') {
+          return 'Вы еще не достигли совершеннолетия. Получение рабочей визы в Европу невозможно без участия родителей или законных представителей.';
+        }
+        if (answers.age === 'старше 55 лет') {
+          return 'Для кандидатов старше 55 лет получение рабочей визы обычно сильно зависит от конкретной вакансии и работодателя. Оставьте заявку, чтобы менеджер проверил возможность индивидуально.';
+        }
+        return '';
+      }
+
+      function getActiveQuestions() {
+        return questions.filter(question => !question.condition || question.condition(answers));
+      }
+
+      function showGate(message) {
+        blockedByGate = true;
+        gateMessage.textContent = decodeText(message);
+        gateMessage.classList.remove('hidden');
+        nextQuestion.textContent = decodeText('Написать специалисту');
+      }
+
+      function showDocuments() {
+        questionStage.classList.add('hidden');
+        testStage.classList.remove('hidden');
+        currentDocuments = buildDocuments();
+        renderSummary();
+        renderDocuments();
+        updateScore();
+        saveState('documents');
+      }
+
+      function buildDocuments() {
+        return baseDocuments
+          .filter(doc => !doc.condition || doc.condition(answers))
+          .filter(doc => !(doc.id === 'finance' && answers.destination === 'Болгария'))
+          .sort((a, b) => Number(Boolean(b.required)) - Number(Boolean(a.required)));
+      }
+
+      function renderSummary() {
+        const finance = getFinanceText();
+        documentIntro.textContent = `Список собран под выбранные параметры. Финансовое требование: ${finance}.`;
+        const items = [
+          ['Имя', answers.name],
+          ['Гражданство', answers.citizenship],
+          ['Вакансия', answers.vacancy],
+          ['Язык', answers.workLanguage || 'не указан'],
+          ['Страна', answers.destination],
+          ['Срок', answers.duration],
+          ['Финансы', finance]
+        ];
+        if (answers.vacancy === 'Водитель') {
+          items.splice(5, 0,
+            ['Категории прав', answers.driverCategories || '-'],
+            ['Code 95', answers.driverCode95 || '-'],
+            ['Опыт GCC/Европа', answers.driverExperienceRegion || '-'],
+            ['Документы по опыту', answers.driverExperienceProof || '-']
+          );
+        }
+        summaryGrid.innerHTML = items.map(([label, value]) => `
+          <div class="summary-item ${answers.vacancy === 'Водитель' && ['Категории прав', 'Code 95', 'Опыт GCC/Европа', 'Документы по опыту'].includes(label) ? 'driver' : ''}"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>
+        `).join('');
+      }
+
+      function renderDocuments() {
+        documentList.innerHTML = currentDocuments.map(doc => `
+          <label class="doc-row ${getDocumentStateClass(doc)}" for="doc-${escapeHtml(doc.id)}">
+            <input type="checkbox" id="doc-${escapeHtml(doc.id)}" value="${escapeHtml(doc.id)}">
+            <span>
+              <span class="doc-title">${escapeHtml(doc.title)}</span>
+              <span class="doc-hint">${escapeHtml(getDocumentHint(doc))}</span>
+              ${doc.note ? `<span class="doc-note">${escapeHtml(doc.note)}</span>` : ''}
+              ${renderDocControl(doc)}
+            </span>
+            <span class="doc-tag ${getDocumentTagClass(doc)}">${getDocumentTagText(doc)}</span>
+          </label>
+        `).join('');
+
+        currentDocuments.forEach(doc => {
+          $(`#doc-${doc.id}`).addEventListener('change', event => {
+            if (event.target.checked && doc.control && !answers[doc.control.key]) {
+              event.target.checked = false;
+              event.target.closest('.doc-row').classList.remove('done');
+              const control = $(`#control-${doc.control.key}`);
+              control.focus();
+              updateScore();
+              return;
+            }
+            if (event.target.checked) selectedDocuments.add(doc.id);
+            else selectedDocuments.delete(doc.id);
+            syncDocumentRowState(doc);
+            saveState('documents');
+            updateScore();
+          });
+          if (doc.control) {
+            const control = $(`#control-${doc.control.key}`);
+            control.addEventListener('change', event => {
+              if (doc.control.type === 'multi-select') {
+                const values = Array.from(control.querySelectorAll('input:checked')).map(input => input.value);
+                answers[doc.control.key] = values;
+                answers.workLanguage = values.join('; ');
+              } else {
+                answers[doc.control.key] = event.target.value;
+              }
+              const checkbox = $(`#doc-${doc.id}`);
+              if (isControlValuePositive(doc)) {
+                checkbox.checked = true;
+                selectedDocuments.add(doc.id);
+              } else {
+                checkbox.checked = false;
+                selectedDocuments.delete(doc.id);
+              }
+              syncDocumentRowState(doc);
+              renderSummary();
+              saveState('documents');
+              updateScore();
+            });
+          }
+        });
+      }
+
+      function syncDocumentRowState(doc) {
+        const row = $(`#doc-${doc.id}`).closest('.doc-row');
+        row.classList.toggle('done', selectedDocuments.has(doc.id) && !isDocumentStop(doc));
+        row.classList.toggle('stop', isDocumentStop(doc));
+        const tag = row.querySelector('.doc-tag');
+        tag.className = `doc-tag ${getDocumentTagClass(doc)}`;
+        tag.textContent = getDocumentTagText(doc);
+      }
+
+      function getDocumentStateClass(doc) {
+        if (isDocumentStop(doc)) return 'stop';
+        return '';
+      }
+
+      function getDocumentTagClass(doc) {
+        if (isDocumentStop(doc)) return 'stop';
+        if (doc.required) return 'required';
+        if (doc.weight >= 10) return 'strong';
+        return '';
+      }
+
+      function getDocumentTagText(doc) {
+        if (isDocumentStop(doc)) return 'стоп-фактор';
+        if (doc.required) return 'обязательно';
+        if (doc.weight >= 10) return 'сильно влияет';
+        return 'усиливает';
+      }
+
+      function renderDocControl(doc) {
+        if (!doc.control) return '';
+        if (doc.control.type === 'multi-select') {
+          const options = getControlOptions(doc);
+          const selected = getMultiAnswer(doc.control.key);
+          return `
+            <span class="doc-control language-options" id="control-${escapeHtml(doc.control.key)}">
+              ${options.map((option, index) => {
+                const id = `control-${doc.control.key}-${index}`;
+                return `
+                  <label class="language-option" for="${escapeHtml(id)}">
+                    <input type="checkbox" id="${escapeHtml(id)}" value="${escapeHtml(option)}" ${selected.includes(option) ? 'checked' : ''}>
+                    <span>${escapeHtml(option)}</span>
+                  </label>
+                `;
+              }).join('')}
+            </span>
+          `;
+        }
+        if (doc.control.type === 'select') {
+          const options = getControlOptions(doc);
+          return `
+            <span class="doc-control">
+              <select id="control-${escapeHtml(doc.control.key)}" aria-label="${escapeHtml(doc.title)}">
+                <option value="">Выберите вариант</option>
+                ${options.map(option => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join('')}
+              </select>
+            </span>
+          `;
+        }
+        return '';
+      }
+
+      function getMultiAnswer(key) {
+        const value = answers[key];
+        if (Array.isArray(value)) return value;
+        if (typeof value === 'string' && value) return value.split(';').map(item => item.trim()).filter(Boolean);
+        return [];
+      }
+
+      function getControlOptions(doc) {
+        if (doc.id === 'languageB1') return getLanguageOptions();
+        return doc.control.options;
+      }
+
+      function getLanguageOptions() {
+        const localLanguage = getDestinationLanguage();
+        return Array.from(new Set([
+          'Русский: нет базового уровня', 'Русский: A1', 'Русский: A2', 'Русский: B1', 'Русский: B2', 'Русский: C1/C2',
+          'Английский: нет базового уровня', 'Английский: A1', 'Английский: A2', 'Английский: B1', 'Английский: B2', 'Английский: C1/C2',
+          `${localLanguage}: нет базового уровня`, `${localLanguage}: A1`, `${localLanguage}: A2`, `${localLanguage}: B1`, `${localLanguage}: B2`, `${localLanguage}: C1/C2`
+        ]));
+      }
+
+      function updateScore() {
+        const requiredDocs = currentDocuments.filter(doc => doc.required);
+        const missingRequired = requiredDocs.filter(doc => !isRequiredSatisfied(doc));
+        const stopFactors = getStopFactors();
+        const completedRequired = requiredDocs.length - missingRequired.length;
+        const certificate = currentDocuments.find(doc => doc.id === 'migrantId');
+        const supportingDocs = currentDocuments.filter(doc => !doc.required && doc.id !== 'migrantId');
+        const supportingTotal = supportingDocs.reduce((sum, doc) => sum + doc.weight, 0);
+        const selectedSupportingDocs = supportingDocs.filter(doc => selectedDocuments.has(doc.id));
+        const supportingSelected = selectedSupportingDocs
+          .reduce((sum, doc) => sum + getDocumentWeight(doc), 0);
+        const certificateScore = certificate && selectedDocuments.has(certificate.id) ? 20 : 0;
+        const supportingScore = supportingTotal && supportingSelected
+          ? Math.max(1, Math.round((supportingSelected / supportingTotal) * 10))
+          : 0;
+        const requiredTotal = requiredDocs.reduce((sum, doc) => sum + getRequiredWeight(doc), 0);
+        const requiredSelected = requiredDocs.reduce((sum, doc) => sum + (isRequiredSatisfied(doc) ? getRequiredWeight(doc) : 0), 0);
+        const requiredProgressScore = requiredTotal ? Math.round((requiredSelected / requiredTotal) * 70) : 0;
+        const rawPercent = Math.min(100, requiredProgressScore + certificateScore + supportingScore);
+        const percent = stopFactors.length ? Math.min(rawPercent, getStopScoreCap(stopFactors)) : rawPercent;
+
+        currentScore = getScore(percent, missingRequired, stopFactors);
+        currentScore.percent = `${percent}%`;
+
+        scorePercent.textContent = `${percent}%`;
+        scoreRating.textContent = `Рейтинг ${currentScore.rating}`;
+        scoreStatus.textContent = currentScore.status;
+        scoreNote.textContent = currentScore.note;
+        meterFill.style.width = `${percent}%`;
+        meterFill.style.background = `linear-gradient(90deg, ${currentScore.color}, ${currentScore.color}dd)`;
+        scorePercent.style.color = currentScore.color;
+        requiredProgress.textContent = `Обязательные пункты: ${completedRequired} из ${requiredDocs.length}`;
+        scoreBreakdown.textContent = `Виза: ${requiredProgressScore}% · Профиль: +${supportingScore}% · Migrant ID: +${certificateScore}%`;
+        if (percent > previousPercent) {
+          meter.classList.remove('bump');
+          void meter.offsetWidth;
+          meter.classList.add('bump');
+        }
+        previousPercent = percent;
+        openLead.disabled = selectedDocuments.size === 0;
+        testStage.classList.toggle('certificate-active', selectedDocuments.has('migrantId'));
+
+        if (stopFactors.length) {
+          blockersBox.innerHTML = `<strong>Стоп-фактор: нужна консультация до подачи</strong><br>${stopFactors.map(item => escapeHtml(item.message)).join('<br>')}`;
+          blockersBox.classList.add('stop');
+          blockersBox.classList.remove('hidden');
+        } else if (missingRequired.length) {
+          blockersBox.innerHTML = `<strong>Сначала нужно закрыть обязательные условия:</strong><br>${missingRequired.map(doc => escapeHtml(doc.title)).join('<br>')}`;
+          blockersBox.classList.remove('stop');
+          blockersBox.classList.remove('hidden');
+        } else {
+          blockersBox.classList.add('hidden');
+          blockersBox.classList.remove('stop');
+          blockersBox.innerHTML = '';
+        }
+      }
+
+      function isRequiredSatisfied(doc) {
+        if (!selectedDocuments.has(doc.id)) return false;
+        if (doc.id === 'languageB1') return getLanguageWeight() >= getMinimumLanguageWeight();
+        if (doc.id === 'criminal') return answers.criminalStatus === 'Есть справка, судимости нет';
+        if (doc.id === 'driverExperienceProofDoc') return ['Да', 'Частично'].includes(answers.driverExperienceProof);
+        if (doc.id === 'driverLicense') return Boolean(answers.driverCategories);
+        return true;
+      }
+
+      function isControlValuePositive(doc) {
+        if (!answers[doc.control.key]) return false;
+        if (doc.id === 'languageB1') return getLanguageWeight() > 0;
+        if (doc.id === 'criminal') return answers.criminalStatus === 'Есть справка, судимости нет';
+        if (doc.id === 'code95') return getDocumentWeight(doc) > 0;
+        if (doc.id === 'gccEuExperience') return getDocumentWeight(doc) > 0;
+        if (doc.id === 'driverExperienceProofDoc') return ['Да', 'Частично'].includes(answers.driverExperienceProof);
+        if (doc.id === 'driverLicense') return Boolean(answers.driverCategories);
+        return true;
+      }
+
+      function getDocumentWeight(doc) {
+        if (doc.id === 'languageB1') return getLanguageWeight();
+        if (doc.id === 'criminal') return answers.criminalStatus === 'Есть справка, судимости нет' ? 12 : 0;
+        if (doc.id === 'code95') {
+          if (answers.driverCode95 === 'Да, действующий') return 10;
+          if (answers.driverCode95 === 'В процессе оформления') return 5;
+          return 0;
+        }
+        if (doc.id === 'gccEuExperience') {
+          if (answers.driverExperienceRegion === 'Да, GCC и Европа') return 7;
+          if (answers.driverExperienceRegion === 'Да, в странах GCC' || answers.driverExperienceRegion === 'Да, в Европе') return 5;
+          return 0;
+        }
+        return doc.weight || 0;
+      }
+
+      function isDocumentStop(doc) {
+        if (doc.id === 'criminal') return answers.criminalStatus === 'Есть судимость / была судимость';
+        if (doc.id === 'languageB1') return getSelectedLanguages().length > 0 && getLanguageReadiness().stop;
+        return false;
+      }
+
+      function getStopFactors() {
+        const factors = [];
+        const criminalDoc = currentDocuments.find(doc => doc.id === 'criminal');
+        if (criminalDoc && answers.criminalStatus === 'Есть судимость / была судимость') {
+          factors.push({
+            type: 'criminal',
+            cap: 25,
+            message: 'Есть судимость или была судимость при требуемой справке. Риск отказа высокий, нужна индивидуальная оценка до подачи.'
+          });
+        }
+
+        const languageDoc = currentDocuments.find(doc => doc.id === 'languageB1');
+        const language = getLanguageReadiness();
+        if (languageDoc && getSelectedLanguages().length > 0 && language.stop) {
+          factors.push({
+            type: 'language',
+            cap: 35,
+            message: 'Язык не закрывает рабочую коммуникацию для выбранной страны. Нужен английский или язык страны хотя бы на базовом рабочем уровне.'
+          });
+        }
+
+        return factors;
+      }
+
+      function getStopScoreCap(stopFactors) {
+        return stopFactors.reduce((cap, item) => Math.min(cap, item.cap), 35);
+      }
+
+      function getRequiredWeight(doc) {
+        if (doc.id === 'passport') return 12;
+        if (doc.id === 'contract') return 20;
+        if (doc.id === 'finance') return 18;
+        if (doc.id === 'languageB1') return 18;
+        if (doc.id === 'criminal') return 12;
+        if (doc.id === 'driverLicense') return 10;
+        if (doc.id === 'driverExperienceProofDoc') return 8;
+        if (doc.id === 'driverMedical') return 6;
+        return 8;
+      }
+
+      function getScore(percent, missingRequired, stopFactors) {
+        if (stopFactors && stopFactors.length) return {
+          rating: 'STOP',
+          color: '#d83232',
+          status: 'Стоп-фактор перед подачей',
+          note: 'По этим данным нельзя считать пакет готовым к визовой подаче. Нужна индивидуальная проверка консультантом, но заявку оставить стоит.'
+        };
+        if (missingRequired && missingRequired.length) return {
+          rating: 'C',
+          color: '#d83232',
+          status: 'Пакет ещё не готов к подаче',
+          note: 'Прогресс уже есть, но пока не закрыт обязательный минимум. Ниже показано, чего именно не хватает.'
+        };
+        if (percent >= 91) return {
+          rating: 'A+',
+          color: '#16894a',
+          status: 'Отличная готовность',
+          note: 'Пакет выглядит сильным. Перед подачей стоит проверить актуальность требований конкретного консульства.'
+        };
+        if (percent >= 76) return {
+          rating: 'A',
+          color: '#55a630',
+          status: 'Хорошая готовность',
+          note: 'Большая часть документов уже собрана. Остаются отдельные документы или уточнения.'
+        };
+        if (percent >= 61) return {
+          rating: 'B+',
+          color: '#c79718',
+          status: 'Средняя готовность',
+          note: 'Пакет можно усилить. Лучше закрыть недостающие документы до записи на подачу.'
+        };
+        if (percent >= 41) return {
+          rating: 'B1',
+          color: '#e56b1f',
+          status: 'Нужна доработка',
+          note: 'Есть основа, но риск отказа остается заметным. Нужен план подготовки документов.'
+        };
+        return {
+          rating: 'C',
+          color: '#d83232',
+          status: 'Низкая готовность',
+          note: 'Пакет пока слабый. Начните с паспорта, работодателя, финансового подтверждения и базовых документов.'
+        };
+      }
+
+      function getFinanceText() {
+        if (answers.destination === 'Болгария') return 'подтверждение денег на счете не требуется';
+        if (easternEurope.has(answers.destination)) return 'от 700 EUR на счете не менее 28 дней';
+        return 'от 1500 EUR на счете не менее 28 дней';
+      }
+
+      function getDocumentHint(doc) {
+        if (doc.id === 'languageB1') return getLanguageText();
+        if (doc.id !== 'finance') return doc.hint;
+        return getFinanceText() + '. ' + doc.hint;
+      }
+
+      function getLanguageText() {
+        const localLanguage = getDestinationLanguage();
+        if (easternEurope.has(answers.destination)) {
+          return `Для выбранной страны сильнее всего работает ${localLanguage} или английский. Русский может помочь в части Восточной Европы, но даёт меньший вес, чем язык страны или английский. Комфортный минимум для работы - B1.`;
+        }
+        return `Для выбранной страны учитывается английский или ${localLanguage}. Русский без английского или языка страны не закрывает рабочую коммуникацию и считается стоп-фактором для визовой готовности.`;
+      }
+
+      function getLanguageWeight() {
+        const readiness = getLanguageReadiness();
+        return readiness.weight;
+      }
+
+      function getMinimumLanguageWeight() {
+        return easternEurope.has(answers.destination) ? 3 : 4;
+      }
+
+      function getLanguageReadiness() {
+        const values = getSelectedLanguages();
+        if (!values.length) {
+          return { weight: 0, relevant: false, stop: true, label: 'язык не указан' };
+        }
+
+        const options = values.map(getSingleLanguageReadiness);
+        const best = options.reduce((current, item) => item.weight > current.weight ? item : current, options[0]);
+        const hasRelevant = options.some(item => item.relevant);
+        return {
+          weight: best.weight,
+          relevant: hasRelevant,
+          stop: best.weight < getMinimumLanguageWeight(),
+          label: best.label
+        };
+      }
+
+      function getSelectedLanguages() {
+        const values = getMultiAnswer('workLanguage');
+        if (values.length) return values;
+        return getMultiAnswer('workLanguages');
+      }
+
+      function getSingleLanguageReadiness(value) {
+        if (!value || value.includes('нет базового уровня')) {
+          return { weight: 0, relevant: false, stop: true, label: value || 'язык не указан' };
+        }
+
+        const parts = value.split(': ');
+        const language = parts[0];
+        const level = value.includes('C1/C2') ? 'C1/C2' : parts[1];
+        const levelScores = { A1: 3, A2: 6, B1: 12, B2: 15, 'C1/C2': 17 };
+        const base = levelScores[level] || 0;
+        const localLanguage = getDestinationLanguage();
+        const localLanguages = getDestinationLanguages();
+        const isEnglish = language === 'Английский';
+        const isRussian = language === 'Русский';
+        const isLocal = localLanguages.includes(language) || language === localLanguage;
+
+        if (isLocal || isEnglish) {
+          return { weight: base, relevant: true, stop: base < getMinimumLanguageWeight(), label: `${language}: ${level}` };
+        }
+
+        if (isRussian && easternEurope.has(answers.destination)) {
+          const reduced = Math.min(base, level === 'A1' ? 2 : level === 'A2' ? 4 : 7);
+          return { weight: reduced, relevant: true, stop: reduced < getMinimumLanguageWeight(), label: `${language}: ${level}` };
+        }
+
+        return { weight: 0, relevant: false, stop: true, label: `${language}: ${level}` };
+      }
+
+      function getDestinationLanguage() {
+        return formatLanguageName(countryLanguages[answers.destination] || 'язык выбранной страны');
+      }
+
+      function getDestinationLanguages() {
+        return splitLanguageNames(countryLanguages[answers.destination] || '').map(formatLanguageName);
+      }
+
+      function splitLanguageNames(value) {
+        return value
+          .split(/\s*(?:,| или | и )\s*/i)
+          .map(item => item.trim())
+          .filter(Boolean);
+      }
+
+      function formatLanguageName(value) {
+        return value
+          .split(/(\s+|,\s*)/)
+          .map(part => {
+            const lower = part.toLowerCase();
+            if (lower === 'и' || lower === 'или') return lower;
+            return part.replace(/^([a-zа-яё])/, letter => letter.toUpperCase());
+          })
+          .join('');
+      }
+
+      function needsCriminalRecord(answers) {
+        const sensitiveJobs = ['Медицина', 'Образование', 'Уход и социальная помощь'];
+        if (sensitiveJobs.includes(answers.vacancy)) return true;
+        if (answers.vacancy === 'Сезонная работа' && ['до 3 месяцев', '3-6 месяцев'].includes(answers.duration)) return false;
+        return ['6-12 месяцев', 'более года'].includes(answers.duration);
+      }
+
+      async function submitLead() {
+        const formData = new FormData(leadForm);
+        const payload = buildLeadPayload(formData);
+
+        if (!BITRIX_WEBHOOK_URL) {
+          const formUrl = buildContactPageUrl();
+          showLeadMessage('Открываем страницу связи. Выберите удобный способ общения, специалист Migrant ID подскажет следующий шаг.', false);
+          window.open(formUrl, '_blank', 'noopener');
+          console.log('Bitrix24 lead payload:', payload);
+          return;
+        }
+
+        try {
+          const response = await fetch(BITRIX_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fields: payload.fields, params: { REGISTER_SONET_EVENT: 'Y' } })
+          });
+          if (!response.ok) throw new Error('Bitrix24 request failed');
+          showLeadMessage('Заявка отправлена. Мы скоро свяжемся с вами.', false);
+          leadForm.reset();
+        } catch (error) {
+          showLeadMessage('Не удалось отправить заявку. Проверьте вебхук Битрикс24 или используйте серверный обработчик.', true);
+        }
+      }
+
+      function buildLeadPayload(formData) {
+        const selected = currentDocuments
+          .filter(doc => selectedDocuments.has(doc.id))
+          .map(doc => doc.title);
+        const missing = currentDocuments
+          .filter(doc => !selectedDocuments.has(doc.id))
+          .map(doc => doc.title);
+
+        const comments = [
+          'Тест на визовую готовность',
+          `Возраст: ${answers.age || '-'}`,
+          `Гражданство: ${answers.citizenship || '-'}`,
+          `Вакансия: ${answers.vacancy || '-'}`,
+          `Язык для работы: ${answers.workLanguage || '-'}`,
+          `Баллы за язык: ${getLanguageWeight()} из 17`,
+          `Статус по судимости: ${answers.criminalStatus || '-'}`,
+          `Стоп-факторы: ${getStopFactors().map(item => item.message).join('; ') || '-'}`,
+          answers.vacancy === 'Водитель' ? `Категории прав: ${answers.driverCategories || '-'}` : '',
+          answers.vacancy === 'Водитель' ? `Code 95: ${answers.driverCode95 || '-'}` : '',
+          answers.vacancy === 'Водитель' ? `Опыт GCC/Европа: ${answers.driverExperienceRegion || '-'}` : '',
+          answers.vacancy === 'Водитель' ? `Подтверждение опыта документами: ${answers.driverExperienceProof || '-'}` : '',
+          `Страна работы: ${answers.destination || '-'}`,
+          `Срок: ${answers.duration || '-'}`,
+          `Финансовое требование: ${getFinanceText()}`,
+          `Готовность: ${currentScore.percent || scorePercent.textContent}`,
+          `Рейтинг: ${currentScore.rating}`,
+          `Статус: ${currentScore.status}`,
+          `Готовые документы: ${selected.join(', ') || '-'}`,
+          `Не хватает: ${missing.join(', ') || '-'}`
+        ].filter(Boolean).join('\n');
+
+        const fields = {
+          TITLE: `Тест визовой готовности: ${formData.get('name') || answers.name || 'кандидат'}`,
+          NAME: formData.get('name') || answers.name || '',
+          PHONE: formData.get('phone') ? [{ VALUE: formData.get('phone'), VALUE_TYPE: 'WORK' }] : [],
+          EMAIL: formData.get('email') ? [{ VALUE: formData.get('email'), VALUE_TYPE: 'WORK' }] : [],
+          SOURCE_ID: BITRIX_SOURCE_ID,
+          COMMENTS: comments
+        };
+
+        if (BITRIX_ASSIGNED_BY_ID) fields.ASSIGNED_BY_ID = BITRIX_ASSIGNED_BY_ID;
+        if (formData.get('telegram')) fields.IM = [{ VALUE: formData.get('telegram'), VALUE_TYPE: 'TELEGRAM' }];
+
+        return { fields };
+      }
+
+      function buildContactPageUrl() {
+        const url = new URL(CONTACT_PAGE_URL);
+        if (answers.name) url.searchParams.set('name', answers.name);
+        return url.toString();
+      }
+
+      function getSubmissionSnapshot(eventName) {
+        const selected = currentDocuments
+          .filter(doc => selectedDocuments.has(doc.id))
+          .map(doc => doc.title);
+        const missing = currentDocuments
+          .filter(doc => !selectedDocuments.has(doc.id))
+          .map(doc => doc.title);
+        const now = new Date();
+        return {
+          event: eventName,
+          submittedAtIso: now.toISOString(),
+          submittedAtLocal: now.toLocaleString('ru-RU'),
+          device: getDeviceLabel(),
+          userAgent: navigator.userAgent,
+          viewport: `${window.innerWidth}x${window.innerHeight}`,
+          pageUrl: window.location.href,
+          publicTestUrl: PUBLIC_TEST_URL,
+          name: answers.name || '',
+          age: answers.age || '',
+          citizenship: answers.citizenship || '',
+          vacancy: answers.vacancy || '',
+          destination: answers.destination || '',
+          duration: answers.duration || '',
+          workLanguage: answers.workLanguage || '',
+          criminalStatus: answers.criminalStatus || '',
+          driverCategories: answers.driverCategories || '',
+          driverCode95: answers.driverCode95 || '',
+          driverExperienceRegion: answers.driverExperienceRegion || '',
+          driverExperienceProof: answers.driverExperienceProof || '',
+          financeRequirement: getFinanceText(),
+          score: currentScore.percent || scorePercent.textContent || '',
+          rating: currentScore.rating || '',
+          status: currentScore.status || '',
+          stopFactors: getStopFactors().map(item => item.message).join('; '),
+          selectedDocuments: selected.join(', '),
+          missingDocuments: missing.join(', '),
+          answersJson: JSON.stringify(answers),
+          selectedDocumentIds: Array.from(selectedDocuments).join(', ')
+        };
+      }
+
+      function getDeviceLabel() {
+        const width = window.innerWidth || document.documentElement.clientWidth || 0;
+        const touch = navigator.maxTouchPoints > 0;
+        if (width <= 640) return touch ? 'mobile' : 'narrow desktop';
+        if (width <= 1024) return touch ? 'tablet' : 'small desktop';
+        return 'desktop';
+      }
+
+      function sendGoogleSheetSnapshot(eventName) {
+        if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
+        const body = JSON.stringify(getSubmissionSnapshot(eventName));
+        try {
+          if (navigator.sendBeacon) {
+            const blob = new Blob([body], { type: 'text/plain;charset=utf-8' });
+            if (navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, blob)) return;
+          }
+          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            keepalive: true,
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body
+          }).catch(() => {});
+        } catch (error) {}
+      }
+
+      function showLeadMessage(text, isError) {
+        leadMessage.textContent = decodeText(text);
+        leadMessage.classList.toggle('error', isError);
+        leadMessage.classList.remove('hidden');
+      }
+
+      async function copyShareLink() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(PUBLIC_TEST_URL);
+        } else {
+          const input = document.createElement('input');
+          input.value = PUBLIC_TEST_URL;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          input.remove();
+        }
+        shareMessage.classList.remove('hidden');
+        shareMessageMobile.classList.remove('hidden');
+        window.setTimeout(() => {
+          shareMessage.classList.add('hidden');
+          shareMessageMobile.classList.add('hidden');
+        }, 2400);
+      }
+
+      function saveState(stage) {
+        try {
+          const currentStage = stage || (testStage.classList.contains('hidden') ? (questionStage.classList.contains('hidden') ? 'intro' : 'questions') : 'documents');
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            answers,
+            selectedDocuments: Array.from(selectedDocuments),
+            step,
+            stage: currentStage
+          }));
+        } catch (error) {
+          // Storage can be unavailable in some embedded browsers; the test still works without it.
+        }
+      }
+
+      function restoreState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const state = JSON.parse(raw);
+          Object.assign(answers, state.answers || {});
+          (state.selectedDocuments || []).forEach(id => selectedDocuments.add(id));
+          step = Math.max(0, Number(state.step || 0));
+          if (state.stage === 'documents') {
+            introStage.classList.add('hidden');
+            questionStage.classList.add('hidden');
+            testStage.classList.remove('hidden');
+            currentDocuments = buildDocuments();
+            renderSummary();
+            renderDocuments();
+            restoreDocumentSelections();
+            updateScore();
+            return;
+          }
+          if (state.stage === 'questions') {
+            introStage.classList.add('hidden');
+            questionStage.classList.remove('hidden');
+            testStage.classList.add('hidden');
+            const activeQuestions = getActiveQuestions();
+            if (step >= activeQuestions.length) step = activeQuestions.length - 1;
+            renderQuestion();
+          }
+        } catch (error) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+
+      function restoreDocumentSelections() {
+        currentDocuments.forEach(doc => {
+          const checkbox = $(`#doc-${doc.id}`);
+          if (!checkbox) return;
+          if (doc.control && answers[doc.control.key]) {
+            const control = $(`#control-${doc.control.key}`);
+            if (control && doc.control.type === 'multi-select') {
+              const values = getMultiAnswer(doc.control.key);
+              control.querySelectorAll('input[type="checkbox"]').forEach(input => {
+                input.checked = values.includes(input.value);
+              });
+            } else if (control) {
+              control.value = answers[doc.control.key];
+            }
+          }
+          const checked = selectedDocuments.has(doc.id) && (!doc.control || isControlValuePositive(doc));
+          checkbox.checked = checked;
+          if (!checked && doc.control && answers[doc.control.key]) selectedDocuments.delete(doc.id);
+          syncDocumentRowState(doc);
+        });
+      }
+
+      function escapeHtml(value) {
+        return decodeText(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function decodeText(value) {
+        const text = String(value || '');
+        if (!text.includes('&#') && !text.includes('&amp;#')) return text;
+        const textarea = document.createElement('textarea');
+        textarea.innerHTML = text.replace(/&amp;#/g, '&#');
+        return textarea.value;
+      }
+    })();
+  </script>
+</body>
+</html>
