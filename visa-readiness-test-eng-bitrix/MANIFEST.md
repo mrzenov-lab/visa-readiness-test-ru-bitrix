@@ -12,9 +12,9 @@ Local archive:
 
 | File | Size |
 | --- | ---: |
-| `visa-readiness-test.html` | 166,207 bytes |
-| `visa-readiness-test-bitrix.html` | 166,207 bytes |
-| `BITRIX-CODE-PASTE-ME.txt` | 166,207 bytes |
+| `visa-readiness-test.html` | 166,229 bytes |
+| `visa-readiness-test-bitrix.html` | 166,229 bytes |
+| `BITRIX-CODE-PASTE-ME.txt` | 166,229 bytes |
 | `migrant-id-logo.png` | 62,571 bytes |
 | `google-sheets-apps-script.js` | 2,181 bytes |
 | `README.md` | 1,505 bytes |
@@ -24,6 +24,7 @@ Local archive:
 
 - English HTML contains no Cyrillic user-facing strings.
 - JavaScript script block parses successfully.
+- Citizenship list includes `Other / not listed` for candidates whose country is not in the list.
 - Logo is embedded into `visa-readiness-test.html`, `visa-readiness-test-bitrix.html`, and `BITRIX-CODE-PASTE-ME.txt`.
 - Contact page URL is `https://migrantid.org/form_duqu/`.
 - No `/ru/form_duqu/` URL is present in the English files.
